@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Open me, my love</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --cream: #fdedd5;
+  --cream: #fbf6ef;
   --purple: #b28ddb;
+  --soft-purple: #e6d9f5;
   --text: #3a2f4d;
-  --heart-color: #f83754;
+  --heart-color: #ff6b81;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--cream) url('file:///C:/Users/alexa/Downloads/Untitled-1.png') no-repeat center center fixed;
+  background: var(--cream) url('https://images.unsplash.com/photo-1603484477859-abe6a73f9366?fm=jpg&q=60&w=3000') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -31,71 +33,65 @@ body {
   background: #fffaf0;
   width: 92%;
   max-width: 520px;
-  padding: 30px 24px 36px;
-  border-radius: 22px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+  padding: 35px 28px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   border: 2px dashed var(--purple);
   text-align: center;
+  position: relative;
 }
 
 h1 {
   font-family: 'Dancing Script', cursive;
   color: var(--purple);
-  margin-bottom: 12px;
-  font-size: clamp(1.8em, 5vw, 2.2em);
+  font-size: 2em;
 }
 
 p {
-  line-height: 1.7;
-  font-size: clamp(1em, 4vw, 1.1em);
+  line-height: 1.6;
+  font-size: 1.05em;
   opacity: 0;
-  margin: 10px 0;
 }
 
 button {
   font-family: 'Patrick Hand', cursive;
   background: #f9eaff;
   border: 1px dashed var(--purple);
-  padding: 12px 18px;
-  border-radius: 14px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  color: var(--text);
   cursor: pointer;
   font-size: 1em;
-  margin: 12px 6px 0;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin: 10px 5px 0;
 }
 
 button:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(178,141,219,0.4);
 }
 
 .hidden { display: none; }
 
-.miffy {
-  font-size: 2.2em;
-  margin-top: 16px;
-}
-
 .heart {
   position: absolute;
-  font-size: 22px;
-  color: var(--heart-color);
-  pointer-events: none;
+  font-size: 24px;
+  opacity: 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 Background Music -->
-<audio id="bgMusic" src="music.mp3" loop></audio>
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card">
   <h1>Open me, my love</h1>
 
   <div id="sections">
 
-    <!-- Intro -->
+    <!-- Section 0 -->
     <div id="section0">
       <div id="letterIntro"></div>
       <button id="nextBtn" class="hidden">Click Me!</button>
@@ -108,83 +104,97 @@ button:hover {
       <p>The way you giggle when I pull a face at you.</p>
       <p>The way you say the sweetest things about me without even trying.</p>
       <p>Honestly, everything you do makes me fall for you over and over.</p>
-      <div>
-        <button onclick="showSection('section0')">Back ⬅️</button>
-        <button onclick="showSection('section2')">Tell me more 🥺</button>
-      </div>
+      <button onclick="showSection('section0')">Back ⬅️</button>
+      <button onclick="showSection('section2')">Tell me more 🥺</button>
     </div>
 
     <!-- Section 2 -->
     <div id="section2" class="hidden">
-      <p>People say you fall in love.</p>
-      <p>But falling for you didn't feel like falling at all.</p>
-      <p>It felt like finding a place that you had never been before but</p>
-      <p>Knew that it was your home.</p>
-      <div>
-        <button onclick="showSection('section1')">Back ⬅️</button>
-        <button onclick="showSection('section2a')">Tell me more 🥺</button>
-      </div>
+      <p>People say that people fall in love, but for me falling for you</p>
+      <p>Felt like visiting a place I had never been to before</p>
+      <p>And somehow knowing that it was home.</p>
+      <p>You mean everything to me.</p>
+      <button onclick="showSection('section1')">Back ⬅️</button>
+      <button onclick="showSection('section2a')">Tell me more 🥺</button>
     </div>
 
     <!-- Section 2a -->
     <div id="section2a" class="hidden">
       <p>When you came into my life, I thought—</p>
       <p>"Would she like me back?"</p>
-      <p>But that night on the 21st of September</p>
-      <p>felt like magic.</p>
-      <div>
-        <button onclick="showSection('section2')">Back ⬅️</button>
-        <button onclick="showSection('section3')">Next 💜</button>
-      </div>
+      <p>But that night, on the 21st of September,</p>
+      <p>To me… felt like magic.</p>
+      <button onclick="showSection('section2')">Back ⬅️</button>
+      <button onclick="showSection('section3')">Next 💜</button>
     </div>
 
     <!-- Section 3 -->
     <div id="section3" class="hidden">
       <p>I didn’t know how much you meant to me.</p>
       <p>Finding out you felt the same changed everything.</p>
-      <p>I wake up and fall asleep thinking of you.</p>
-      <div>
-        <button onclick="showSection('section2a')">Back ⬅️</button>
-        <button onclick="showSection('poemSection')">Continue ❤️</button>
-      </div>
+      <p>I woke up with you on my mind and fell asleep with you there too.</p>
+      <button onclick="showSection('section2a')">Back ⬅️</button>
+      <button onclick="showSection('section3a')">Next ❤️</button>
+    </div>
+
+    <!-- Section 3a -->
+    <div id="section3a" class="hidden">
+      <p>I knew I loved you when—</p>
+      <p>I was scared of flying because I didn’t want to be without you.</p>
+      <p>I knew I loved you when my nerves calmed just by talking to you.</p>
+      <p>I knew I loved you when no matter what, you never saw me differently.</p>
+      <button onclick="showSection('section3')">Back ⬅️</button>
+      <button onclick="showSection('poemSection')">Continue 😊</button>
     </div>
 
     <!-- Poem -->
     <div id="poemSection" class="hidden">
-      <p>From this day on, I choose you.</p>
-      <p>Every version of you.</p>
-      <p>Every day.</p>
-      <p>Forever.</p>
-      <div>
-        <button onclick="showSection('section3')">Back ⬅️</button>
-        <button onclick="showSection('section4')">One last thing 🍯</button>
-      </div>
+      <p>From this day onto the next, I vow—</p>
+      <p>Every morning I will choose you.</p>
+      <p>If the world turns against you, I will stand louder.</p>
+      <p>If you feel alone, I will be your home.</p>
+      <p>I will love you forever.</p>
+      <button onclick="showSection('section3a')">Back ⬅️</button>
+      <button onclick="showSection('section4')">One last thing 🍯</button>
     </div>
 
     <!-- Final -->
     <div id="section4" class="hidden">
-      <p>I may not have much to give</p>
-      <p>But I wanted to give you something personal</p>
+      <p>I may not be rich in money,</p>
+      <p>But I wanted to give you something from my heart.</p>
       <p>Happy four months, my love.</p>
-      <p>I love you very much. Forever.</p>
-      <div>
-        <button onclick="showSection('poemSection')">Back ⬅️</button>
-        <button id="surpriseBtn">Special Button 💞</button>
-      </div>
-      <div class="miffy">🐰</div>
+      <p>I love you. Forever.</p>
+      <button onclick="showSection('poemSection')">Back ⬅️</button>
+      <button id="surpriseBtn">A little surprise 💖</button>
     </div>
 
   </div>
 </div>
 
 <script>
-const music = document.getElementById("bgMusic");
+// 🎵 MUSIC START (PHONE SAFE + FADE IN)
+const bgMusic = document.getElementById("bgMusic");
 
-// Intro typing
+function startMusic(){
+  bgMusic.volume = 0;
+  bgMusic.play().catch(()=>{});
+
+  let v = 0;
+  const fade = setInterval(()=>{
+    v += 0.02;
+    bgMusic.volume = Math.min(v, 0.6);
+    if(v >= 0.6) clearInterval(fade);
+  }, 100);
+}
+
+document.addEventListener("click", startMusic, { once:true });
+document.addEventListener("touchstart", startMusic, { once:true });
+
+// Letter intro
 const letterLines = [
   "Hi my love.",
   "I made this just for you.",
-  "Even from far away, you mean more to me than I can put into words.",
+  "Even from far away, you mean more to me than words can say.",
   "Take your time, okay?"
 ];
 
@@ -192,70 +202,63 @@ const letterIntro = document.getElementById("letterIntro");
 const nextBtn = document.getElementById("nextBtn");
 let lineIndex = 0;
 
-function showLine() {
-  if (lineIndex < letterLines.length) {
+function showLine(){
+  if(lineIndex < letterLines.length){
     const p = document.createElement("p");
     p.textContent = letterLines[lineIndex];
     letterIntro.appendChild(p);
-    setTimeout(() => {
-      p.style.transition = "opacity 1s ease";
-      p.style.opacity = 1;
-      lineIndex++;
-      setTimeout(showLine, 700);
-    }, 50);
+    setTimeout(()=>p.style.opacity=1,50);
+    lineIndex++;
+    setTimeout(showLine,800);
   } else {
     nextBtn.classList.remove("hidden");
   }
 }
 showLine();
 
-// Start music on first interaction
-nextBtn.onclick = () => {
-  music.volume = 0.35;
-  music.play();
-  showSection('section1');
-};
+nextBtn.onclick = () => showSection("section1");
 
-// Section transitions
-function showSection(id) {
-  document.querySelectorAll('#sections > div').forEach(s => s.classList.add('hidden'));
+function showSection(id){
+  document.querySelectorAll("#sections > div")
+    .forEach(s=>s.classList.add("hidden"));
   const section = document.getElementById(id);
-  section.classList.remove('hidden');
+  section.classList.remove("hidden");
 
-  section.querySelectorAll('p').forEach((p, i) => {
-    p.style.opacity = 0;
-    setTimeout(() => {
-      p.style.transition = 'opacity 1s ease';
-      p.style.opacity = 1;
-    }, i * 350);
+  section.querySelectorAll("p").forEach((p,i)=>{
+    p.style.opacity=0;
+    setTimeout(()=>p.style.opacity=1, i*400);
   });
 }
 
-// Heart surprise
-document.getElementById("surpriseBtn").onclick = () => {
-  const hearts = 55;
-  const cx = window.innerWidth / 2;
-  const cy = window.innerHeight / 2;
+// 💖 HEART SURPRISE
+document.getElementById("surpriseBtn").onclick = ()=>{
+  const centerX = window.innerWidth/2;
+  const centerY = window.innerHeight/2;
+  const scale = 15;
+  const hearts = 50;
 
-  for (let i = 0; i < hearts; i++) {
+  for(let i=0;i<hearts;i++){
     const h = document.createElement("div");
-    h.textContent = "💖";
-    h.className = "heart";
-    h.style.left = cx + "px";
-    h.style.top = cy + "px";
+    h.textContent="💖";
+    h.className="heart";
     document.body.appendChild(h);
 
-    const angle = Math.random() * Math.PI * 2;
-    const dist = 120 + Math.random() * 80;
+    const t = Math.PI*2*(i/hearts);
+    const start = performance.now();
+    const duration = 3500;
 
-    setTimeout(() => {
-      h.style.transition = "all 2.5s ease";
-      h.style.left = cx + Math.cos(angle) * dist + "px";
-      h.style.top = cy + Math.sin(angle) * dist + "px";
-      h.style.opacity = 0;
-    }, 50);
-
-    setTimeout(() => h.remove(), 2600);
+    function animate(time){
+      const p = Math.min((time-start)/duration,1);
+      const a = t + p*Math.PI*2;
+      const x = 16*Math.pow(Math.sin(a),3)*scale;
+      const y = (13*Math.cos(a)-5*Math.cos(2*a)-2*Math.cos(3*a)-Math.cos(4*a))*scale;
+      h.style.left = centerX + x + "px";
+      h.style.top = centerY - y + "px";
+      h.style.opacity = 1-p;
+      if(p<1) requestAnimationFrame(animate);
+      else h.remove();
+    }
+    requestAnimationFrame(animate);
   }
 };
 </script>
