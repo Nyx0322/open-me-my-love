@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Open me, my love</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #fdedd5;
+  --purple: #b28ddb;
+  --text: #3a2f4d;
+  --heart-color: #f83754;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream) url('file:///C:/Users/alexa/Downloads/Untitled-1.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.card {
+  background: #fffaf0;
+  width: 92%;
+  max-width: 520px;
+  padding: 30px 24px 36px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+  border: 2px dashed var(--purple);
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  color: var(--purple);
+  margin-bottom: 12px;
+  font-size: clamp(1.8em, 5vw, 2.2em);
+}
+
+p {
+  line-height: 1.7;
+  font-size: clamp(1em, 4vw, 1.1em);
+  opacity: 0;
+  margin: 10px 0;
+}
+
+button {
+  font-family: 'Patrick Hand', cursive;
+  background: #f9eaff;
+  border: 1px dashed var(--purple);
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 12px 6px 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(178,141,219,0.4);
+}
+
+.hidden { display: none; }
+
+.miffy {
+  font-size: 2.2em;
+  margin-top: 16px;
+}
+
+.heart {
+  position: absolute;
+  font-size: 22px;
+  color: var(--heart-color);
+  pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<div class="card">
+  <h1>Open me, my love</h1>
+
+  <div id="sections">
+
+    <!-- Intro -->
+    <div id="section0">
+      <div id="letterIntro"></div>
+      <button id="nextBtn" class="hidden">Click Me!</button>
+    </div>
+
+    <!-- Section 1 -->
+    <div id="section1" class="hidden">
+      <p>Rhi, there are so many little things you do that make me fall for you again and again.</p>
+      <p>The way your voice gets higher when you talk about something you love.</p>
+      <p>The way you giggle when I pull a face at you.</p>
+      <p>The way you say the sweetest things about me without even trying.</p>
+      <p>Honestly, everything you do makes me fall for you over and over.</p>
+      <div>
+        <button onclick="showSection('section0')">Back ⬅️</button>
+        <button onclick="showSection('section2')">Tell me more 🥺</button>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="section2" class="hidden">
+      <p>People say you fall in love.</p>
+      <p>But falling for you didn't feel like falling at all.</p>
+      <p>It felt like finding a place that you had never been before but</p>
+      <p>Knew that it was your home.</p>
+      <div>
+        <button onclick="showSection('section1')">Back ⬅️</button>
+        <button onclick="showSection('section2a')">Tell me more 🥺</button>
+      </div>
+    </div>
+
+    <!-- Section 2a -->
+    <div id="section2a" class="hidden">
+      <p>When you came into my life, I thought—</p>
+      <p>"Would she like me back?"</p>
+      <p>But that night on the 21st of September</p>
+      <p>felt like magic.</p>
+      <div>
+        <button onclick="showSection('section2')">Back ⬅️</button>
+        <button onclick="showSection('section3')">Next 💜</button>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div id="section3" class="hidden">
+      <p>I didn’t know how much you meant to me.</p>
+      <p>Finding out you felt the same changed everything.</p>
+      <p>I wake up and fall asleep thinking of you.</p>
+      <div>
+        <button onclick="showSection('section2a')">Back ⬅️</button>
+        <button onclick="showSection('poemSection')">Continue ❤️</button>
+      </div>
+    </div>
+
+    <!-- Poem -->
+    <div id="poemSection" class="hidden">
+      <p>From this day on, I choose you.</p>
+      <p>Every version of you.</p>
+      <p>Every day.</p>
+      <p>Forever.</p>
+      <div>
+        <button onclick="showSection('section3')">Back ⬅️</button>
+        <button onclick="showSection('section4')">One last thing 🍯</button>
+      </div>
+    </div>
+
+    <!-- Final -->
+    <div id="section4" class="hidden">
+      <p>I may not have much to give</p>
+      <p>But I wanted to give you something personal</p>
+      <p>Happy four months, my love.</p>
+      <p>I love you very much. Forever.</p>
+      <div>
+        <button onclick="showSection('poemSection')">Back ⬅️</button>
+        <button id="surpriseBtn">Special Button 💞</button>
+      </div>
+      <div class="miffy">🐰</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+// Intro typing
+const letterLines = [
+  "Hi my love.",
+  "I made this just for you.",
+  "Even from far away, you mean more to me than I can put into words.",
+  "Take your time, okay?"
+];
+
+const letterIntro = document.getElementById("letterIntro");
+const nextBtn = document.getElementById("nextBtn");
+let lineIndex = 0;
+
+function showLine() {
+  if (lineIndex < letterLines.length) {
+    const p = document.createElement("p");
+    p.textContent = letterLines[lineIndex];
+    letterIntro.appendChild(p);
+    setTimeout(() => {
+      p.style.transition = "opacity 1s ease";
+      p.style.opacity = 1;
+      lineIndex++;
+      setTimeout(showLine, 700);
+    }, 50);
+  } else {
+    nextBtn.classList.remove("hidden");
+  }
+}
+showLine();
+
+// Start music on first interaction
+nextBtn.onclick = () => {
+  music.volume = 0.35;
+  music.play();
+  showSection('section1');
+};
+
+// Section transitions
+function showSection(id) {
+  document.querySelectorAll('#sections > div').forEach(s => s.classList.add('hidden'));
+  const section = document.getElementById(id);
+  section.classList.remove('hidden');
+
+  section.querySelectorAll('p').forEach((p, i) => {
+    p.style.opacity = 0;
+    setTimeout(() => {
+      p.style.transition = 'opacity 1s ease';
+      p.style.opacity = 1;
+    }, i * 350);
+  });
+}
+
+// Heart surprise
+document.getElementById("surpriseBtn").onclick = () => {
+  const hearts = 55;
+  const cx = window.innerWidth / 2;
+  const cy = window.innerHeight / 2;
+
+  for (let i = 0; i < hearts; i++) {
+    const h = document.createElement("div");
+    h.textContent = "💖";
+    h.className = "heart";
+    h.style.left = cx + "px";
+    h.style.top = cy + "px";
+    document.body.appendChild(h);
+
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 120 + Math.random() * 80;
+
+    setTimeout(() => {
+      h.style.transition = "all 2.5s ease";
+      h.style.left = cx + Math.cos(angle) * dist + "px";
+      h.style.top = cy + Math.sin(angle) * dist + "px";
+      h.style.opacity = 0;
+    }, 50);
+
+    setTimeout(() => h.remove(), 2600);
+  }
+};
+</script>
+
+</body>
+</html>
